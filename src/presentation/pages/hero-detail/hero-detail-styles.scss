@@ -61,6 +61,24 @@
 .detailBackgroundImg{
   position: relative;
   margin-bottom: -2em;
+
+  .backMainHero{
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    left: 1em;
+    z-index: 111111;
+    top: 2em;
+    border: 1px solid #ffff;
+    padding: 1em;
+    transition: 0.5s;
+
+    &:hover{
+      background: #ffff;
+      transition: 0.5s;
+      color: #555555
+    }
+  }
 }
 
 .cotentBackgroundImg{

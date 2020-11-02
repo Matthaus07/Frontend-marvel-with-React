@@ -46,7 +46,7 @@ module.exports = merge(common, {
     port: 3000
   },
   plugins: [new DefinePlugin({
-    'process.env.API_URL': JSON.stringify('http://gateway.marvel.com/v1/public')
+    'process.env.API_URL': JSON.stringify('https://gateway.marvel.com/v1/public')
   }),
   new HtmlWebpackPlugin({
     template: './template.dev.html'

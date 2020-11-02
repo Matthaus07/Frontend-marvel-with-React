@@ -4,6 +4,7 @@ import { HeroDataResult } from '@/domain/usecases'
 import Styles from './hero-detail-styles.scss'
 import HeroDetailComic from './components/hero-detail-comics.tsx/hero-detail-comics'
 import Spinner from '@/presentation/components/spinner/spinner'
+import { Link } from 'react-router-dom'
 
 interface Props {
   heroDataResult: HeroDataResult
@@ -35,6 +36,9 @@ const HeroDetail: React.FC<Props> = ({ heroDataResult }: Props) => {
               {state.hero.map(hero =>
                 <div key={hero.id}>
                   <div className={Styles.detailBackgroundImg}>
+                    <Link to={'/'}>
+                      <div className={Styles.backMainHero}>Voltar para a Home</div>
+                    </Link>
                     <div className={Styles.detailItemBackground}>
 
                       <div className={Styles.thumbnailBackground} style={{ backgroundImage: `url(${hero.thumbnail?.path}.${hero.thumbnail?.extension})` }}></div>
@@ -53,6 +57,7 @@ const HeroDetail: React.FC<Props> = ({ heroDataResult }: Props) => {
                 </div>
               )}
               <HeroDetailComic heroDataResultComic={heroDataResult} />
+
             </>
 
           )

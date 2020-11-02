@@ -1,5 +1,6 @@
 import { HeroDataResult } from '@/domain/usecases'
 import { makeApiUrl } from '@/main/factories/http'
+import Spinner from '@/presentation/components/spinner/spinner'
 import React, { useCallback, useEffect, useState } from 'react'
 import Styles from './hero-detail-comics-styles.scss'
 
@@ -32,24 +33,37 @@ const HeroDetailComic: React.FC<Props> = ({ heroDataResultComic }: Props) => {
   },[])
 
   return (
-    <>
-      <h2>Comics</h2>
-      <div className={Styles.contentComics}>
-        {
-          UrlComic.slice(0,next).map((dataComic,index) =>
-            <div className={Styles.contentComic} key={index}>
 
-              <img className={Styles.imgThumbnail} src={`${dataComic.thumbnail?.path}.${dataComic.thumbnail?.extension}`}/>
-              <div className={Styles.textDescription}>
-                <p className={Styles.ok}>{dataComic.description !== null ? dataComic.title : 'Sem Descrição' }</p>
-                <small>{dataComic.format }</small>
+    <>
+
+      {
+        UrlComic.length !== 0
+          ? (
+            <>
+              <h2>Comics</h2>
+              <div className={Styles.contentComics}>
+                {
+                  UrlComic.slice(0,next).map((dataComic,index) =>
+                    <div className={Styles.contentComic} key={index}>
+                      <img className={Styles.imgThumbnail} src={`${dataComic.thumbnail?.path}.${dataComic.thumbnail?.extension}`}/>
+
+                      <div className={Styles.textDescription}>
+                        <p className={Styles.ok}>{dataComic.description !== null ? dataComic.title : 'Sem Descrição' }</p>
+                        <small>{dataComic.format }</small>
+                      </div>
+
+                    </div>
+                  )}
               </div>
-            </div>
-          )}
-      </div>
-      { next >= UrlComic.length ? null
-        : <button className={Styles.customButton} onClick={loadMore}>See More</button>
+
+              { next >= UrlComic.length ? null
+                : <button className={Styles.customButton} onClick={loadMore}>See More</button>
+              }
+            </>
+          )
+          : <Spinner/>
       }
+
     </>
   )
 }
