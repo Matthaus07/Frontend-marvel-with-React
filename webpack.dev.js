@@ -1,9 +1,8 @@
 const { DefinePlugin } = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const common = require('./webpack.common')
-const {merge} = require('webpack-merge')
+const { merge } = require('webpack-merge')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -12,7 +11,20 @@ module.exports = merge(common, {
       test: /\.ts(x?)$/,
       loader: 'ts-loader',
       exclude: /node_modules/
-    }, {
+    },
+    
+    {
+      test: /\.(jpe?g|gif|png|svg)$/i,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }
+      ]
+    },
+    {
       test: /\.scss$/,
       use: [{
         loader: 'style-loader'
@@ -23,7 +35,8 @@ module.exports = merge(common, {
         }
       }, {
         loader: 'sass-loader'
-      }]
+      }
+      ]
     }]
   },
   devtool: 'inline-source-map',
@@ -33,11 +46,11 @@ module.exports = merge(common, {
     historyApiFallback: true,
     port: 3000
   },
-    plugins: [ new DefinePlugin({
-      'process.env.API_URL': JSON.stringify('http://gateway.marvel.com/v1/public')
-    }),
-   new HtmlWebpackPlugin({
-     template: './template.dev.html'
-   })
+  plugins: [new DefinePlugin({
+    'process.env.API_URL': JSON.stringify('http://gateway.marvel.com/v1/public')
+  }),
+  new HtmlWebpackPlugin({
+    template: './template.dev.html'
+  })
   ]
 })
