@@ -78,6 +78,21 @@
   
   .customButton{
     display: flex;
-  
+    color: #ffff;
+    background: linear-gradient(192deg, #f30000, #ea232394);
+    border: none;
+    padding: 1em;
+    cursor: pointer;
     margin: 0 auto;
+    transition: 1s;
+    width: 150px;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 4em;
+
+    &:hover{
+      background: linear-gradient(192deg, #f30000, #ea2323);
+      transition: 2s;
+      border: 1px solid;
+    }
   }
