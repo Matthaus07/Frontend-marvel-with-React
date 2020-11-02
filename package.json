@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
     "test": "jest --passWithNoTests --no-cache --runInBand",
@@ -54,6 +55,8 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "express-history-api-fallback": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-js-pagination": "^3.0.3",
