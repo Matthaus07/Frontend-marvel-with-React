@@ -32,7 +32,6 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
   const loadAllHeroes = async () => {
     try {
       const groupHeroes = await heroeslist.loadAll()
-      console.log(groupHeroes)
       setState({ ...state, heroes: groupHeroes, isLoading: true })
     } catch (err) {
       setState({ ...state, isLoading: false, mainError: 'Ocorreu um erro inesperado. Por favor tente mais tarde!' })
