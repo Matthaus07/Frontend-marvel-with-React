@@ -4,57 +4,52 @@ import { HeroDataResult } from '@/domain/usecases'
 import Styles from './hero-detail-styles.scss'
 import HeroDetailComic from './components/hero-detail-comics.tsx/hero-detail-comics'
 
-type Props = {
+interface Props {
   heroDataResult: HeroDataResult
 }
 
-
-  const HeroDetail: React.FC<Props> = ({ heroDataResult }: Props) => {   
-
-  const [state, setState] = useState({  hero: [] as HeroDataResult.Model[]})
-  const loadHeroDetail = async () =>{
-    try{
+const HeroDetail: React.FC<Props> = ({ heroDataResult }: Props) => {
+  const [state, setState] = useState({ hero: [] as HeroDataResult.Model[] })
+  const loadHeroDetail = async () => {
+    try {
       const groupHero = await heroDataResult.load()
-      setState({hero:groupHero})
-    }
-    catch(err){
+      setState({ hero: groupHero })
+    } catch (err) {
       console.log(err)
     }
-  } 
+  }
 
-  useEffect(()=>{
-      loadHeroDetail()
+  useEffect(() => {
+    loadHeroDetail()
   },[])
-  
 
-  return (  
+  return (
     <>
       <MainHeader />
       <div className={Styles.spaceBottomBetween}></div>
-            {
-              state.hero.map(hero => 
-                <div key={hero.id}>
-                <div className={Styles.detailBackgroundImg}>
-                <div className={Styles.detailItemBackground}>
+      {
+        state.hero.map(hero =>
+          <div key={hero.id}>
+            <div className={Styles.detailBackgroundImg}>
+              <div className={Styles.detailItemBackground}>
 
                 <div className={Styles.thumbnailBackground} style={{ backgroundImage: `url(${hero.thumbnail?.path}.${hero.thumbnail?.extension})` }}></div>
-                </div>
-                  
-                </div>
-                <div className={Styles.container}> 
-                <div className={Styles.contentDetailHero}>
+              </div>
 
-                  <img className={Styles.cotentBackgroundImg} src={`${hero.thumbnail?.path}.${hero.thumbnail?.extension}`} alt=""/>
+            </div>
+            <div className={Styles.container}>
+              <div className={Styles.contentDetailHero}>
 
-                
-                  <p>{hero.name}</p>
-                  <p>{hero.description}</p>
-                </div>
-                </div>
-               </div> 
-              )
-            } 
-           <HeroDetailComic heroDataResultComic={heroDataResult} />
+                <img className={Styles.cotentBackgroundImg} src={`${hero.thumbnail?.path}.${hero.thumbnail?.extension}`} alt=""/>
+
+                <p>{hero.name}</p>
+                <p>{hero.description}</p>
+              </div>
+            </div>
+          </div>
+        )
+      }
+      <HeroDetailComic heroDataResultComic={heroDataResult} />
     </>
   )
 }
