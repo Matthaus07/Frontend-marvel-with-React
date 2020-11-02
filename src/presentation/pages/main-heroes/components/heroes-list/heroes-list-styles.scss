@@ -1,0 +1,16 @@
+
+.nameFields{
+  display : grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+ul{
+  list-style: none;
+  font-size: 12px;
+  font-weight: normal;
+  color:#8E8E8E;
+  li:not(:last-child) {
+    margin-bottom: 2px;
+    }
+}

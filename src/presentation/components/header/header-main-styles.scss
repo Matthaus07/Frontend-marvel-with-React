@@ -1,0 +1,42 @@
+
+
+.header{
+  display: flex;
+  flex-direction: row;
+  background-color:#FFFFFF;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+
+  img{
+    width: 96px;
+    height: 24px;
+  }
+
+  .headerContent{
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+
+    h5{
+      color:#555555;
+
+      font-weight: bold;
+    }
+    h6{
+      color:#555555;
+      font-weight: 500;
+    }
+
+    h1{
+      font-weight: bold;
+      color:#555555;
+    }
+
+    .backgroundAvatar{
+      background:#F5F5F5;
+      padding:8px;
+      border-radius: 4px;
+    }
+  }
+}
