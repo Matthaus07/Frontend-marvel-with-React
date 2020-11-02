@@ -1,5 +1,5 @@
 import { HeroDataResult } from '@/domain/usecases'
-import { getApiUrlFromTheResponse } from '@/main/factories/http'
+import { getApiUrlFromTheResponse, makeApiUrl } from '@/main/factories/http'
 import React, { useCallback, useEffect, useState } from 'react'
 import Styles from './hero-detail-comics-styles.scss'
 
@@ -21,7 +21,7 @@ const HeroDetailComic: React.FC<Props> = ({ heroDataResultComic }: Props) => {
   const loadComicHero = async () => {
     const groupHero = await heroDataResultComic.load()
     const collectionUrl = groupHero.find(detailComics => detailComics)
-    const responseComic = await fetch(getApiUrlFromTheResponse(`${collectionUrl.comics.collectionURI}?`))
+    const responseComic = await fetch(makeApiUrl(`/characters/${collectionUrl.id}/comics?`))
     const responseComicJson = await responseComic.json()
     arrayForUrlHolding = responseComicJson.data.results
     setUrlState(arrayForUrlHolding)

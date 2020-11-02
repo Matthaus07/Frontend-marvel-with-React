@@ -46,7 +46,7 @@ module.exports = merge(common, {
     'react-router-dom': 'ReactRouterDOM'
   },
   plugins: [new DefinePlugin({
-    'process.env.API_URL': JSON.stringify('http://gateway.marvel.com/v1/public')
+    'process.env.API_URL': JSON.stringify('https://gateway.marvel.com/v1/public')
   }),
   new MiniCssExtractPlugin({
     filename: 'main-bundle-[hash].css'
