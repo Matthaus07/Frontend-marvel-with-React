@@ -33,6 +33,7 @@ const HeroDetailComic: React.FC<Props> = ({ heroDataResultComic }: Props) => {
 
   return (
     <>
+      <h2>Comics</h2>
       <div className={Styles.contentComics}>
         {
           UrlComic.slice(0,next).map((dataComic,index) =>

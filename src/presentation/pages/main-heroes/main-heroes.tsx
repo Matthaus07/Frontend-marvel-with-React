@@ -38,14 +38,12 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
 
   const hadleFilterChange = e => setSeach(e.target.value)
 
-  const handleSearchHero = () => {
+  const handleSearchHero = async () => {
     if (search !== '') {
       const endpoint = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${search}&ts=1&apikey=83d65c3fe4e9bd364cd51734e06563d8&hash=70f4690b2168e082fcc707253025b8db`
-      fetch(endpoint).then(response => {
-        response.json().then(function (data) {
-          setFilterDisplay(data.data.results)
-        })
-      })
+      const fetchResult = await fetch(endpoint)
+      const fetchResultJson = await fetchResult.json()
+      setFilterDisplay(fetchResultJson.data.results)
     }
   }
 
@@ -65,10 +63,7 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
           <h2>Busca de Personagens</h2>
           <p>Nome do Personagem</p>
           <Filter value={search} onChange={hadleFilterChange}/>
-
-          <div>{search !== '' ? filterDisplay.length : state.heroes.length } resultados encontrados</div>
           <HeroesList heroes={search !== '' ? filterDisplay : currentTodos}/>
-
           <Pagination
             hideDisabled
             activePage={ statePage }
