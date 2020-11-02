@@ -1,16 +1,25 @@
-
-
 .header{
+  background-color:#FFFFFF;
   display: flex;
   flex-direction: row;
-  background-color:#FFFFFF;
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  
+  
+  .container{
+    display: flex;
+    width: 1140px;
+    margin: 0 auto;
+    height: 64px;
+    justify-content: space-between;
+    align-items: center;
 
+  }
   img{
     width: 96px;
     height: 24px;
+    padding-top: 3px;
   }
 
   .headerContent{
@@ -38,5 +47,12 @@
       padding:8px;
       border-radius: 4px;
     }
+  }
+
+}
+
+@media(max-width: 700px){
+  .header > .container{
+  padding: 0 11px;
   }
 }

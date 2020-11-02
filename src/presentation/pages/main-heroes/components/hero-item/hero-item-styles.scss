@@ -1,4 +1,6 @@
-
+a{
+  text-decoration: none;
+}
   .backgroundCard{
     background: #FFFF;
     display : grid;
@@ -23,7 +25,6 @@
   display: flex;
   column-gap: 1em;
   align-items: center;
-  text-decoration: none;
 }
   
 .thumbnailBackground{

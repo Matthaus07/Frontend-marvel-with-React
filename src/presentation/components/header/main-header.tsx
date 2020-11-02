@@ -5,18 +5,20 @@ import { Link } from 'react-router-dom'
 const MainHeader: React.FC = () => {
   return (
     <header className={Styles.header}>
-      <Link className={Styles.thumbnailContent} to={'/'}>
-
-        <img src={imgObjective} />
-      </Link>
-      <div className={Styles.headerContent}>
-
-        <h5>Matthaus Brandão</h5>
-        <h6>Teste de Frontend</h6>
-        <div className={Styles.backgroundAvatar}>
-          <h1>CB</h1>
+      <section className={Styles.container}>
+        <Link className={Styles.thumbnailContent} to={'/'}>
+          <img src={imgObjective} />
+        </Link>
+        <div className={Styles.headerContent}>
+          <div className={Styles.headerGroup}>
+            <h5>Matthaus Brandão</h5>
+            <h6>Teste de Frontend</h6>
+          </div>
+          <div className={Styles.backgroundAvatar}>
+            <h1>CB</h1>
+          </div>
         </div>
-      </div>
+      </section>
     </header>
   )
 }

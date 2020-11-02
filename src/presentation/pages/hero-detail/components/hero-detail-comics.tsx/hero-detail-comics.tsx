@@ -39,7 +39,7 @@ const HeroDetailComic: React.FC<Props> = ({ heroDataResultComic }: Props) => {
           UrlComic.slice(0,next).map((dataComic,index) =>
             <div className={Styles.contentComic} key={index}>
 
-              <img width="224px" height="336px" className={Styles.imgThumbnail} src={`${dataComic.thumbnail?.path}.${dataComic.thumbnail?.extension}`}/>
+              <img className={Styles.imgThumbnail} src={`${dataComic.thumbnail?.path}.${dataComic.thumbnail?.extension}`}/>
               <div className={Styles.textDescription}>
                 <p className={Styles.ok}>{dataComic.description !== null ? dataComic.title : 'Sem Descrição' }</p>
                 <small>{dataComic.format }</small>

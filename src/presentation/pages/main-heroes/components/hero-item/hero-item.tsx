@@ -9,18 +9,22 @@ interface Props {
 
 const HeroItem: React.FC<Props> = ({ hero }: Props) => {
   return (
-    <div className={Styles.backgroundCard}>
-      <Link className={Styles.thumbnailContent} data-testid="link" to={`/hero-detail/${hero.id}`}>
-        <img className={Styles.thumbnailBackground} src={`${hero.thumbnail?.path}.${hero.thumbnail?.extension}`} alt=""/>
-        <p>{hero.name}</p>
-      </Link>
-      <ul>
-        <li>{hero.name}</li>
-      </ul>
-      <ul>
-        <li>{hero.id}</li>
-      </ul>
-    </div>
+    <Link data-testid="link" to={`/hero-detail/${hero.id}`}>
+      <div className={Styles.backgroundCard}>
+        <div className={Styles.thumbnailContent}>
+          <img className={Styles.thumbnailBackground} src={`${hero.thumbnail?.path}.${hero.thumbnail?.extension}`} alt=""/>
+          <p>{hero.name}</p>
+        </div>
+        <ul>
+          {hero.series.items.length === 0 ? <li>Sem Séries</li>
+            : hero.series.items.slice(0,3).map((i,index) => <li key={index}>{i.name}</li>)}
+        </ul>
+        <ul>
+          {hero.events.items.length === 0 ? <li>Sem Eventos</li>
+            : hero.events.items.slice(0,3).map((i,index) => <li key={index}>{i.name}</li>)}
+        </ul>
+      </div>
+    </Link>
 
   )
 }
