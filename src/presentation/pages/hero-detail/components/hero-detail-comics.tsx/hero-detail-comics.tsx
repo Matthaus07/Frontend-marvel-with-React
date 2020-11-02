@@ -29,7 +29,6 @@ const HeroDetailComic: React.FC<Props> = ({ heroDataResultComic }: Props) => {
 
   useEffect(() => {
     loadComicHero()
-    console.log(loadMore())
   },[])
 
   return (
@@ -46,7 +45,6 @@ const HeroDetailComic: React.FC<Props> = ({ heroDataResultComic }: Props) => {
               </div>
             </div>
           )}
-
       </div>
       { next >= UrlComic.length ? null
         : <button className={Styles.customButton} onClick={loadMore}>See More</button>

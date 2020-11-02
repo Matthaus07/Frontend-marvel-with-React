@@ -43,7 +43,6 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
       const endpoint = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${search}&ts=1&apikey=83d65c3fe4e9bd364cd51734e06563d8&hash=70f4690b2168e082fcc707253025b8db`
       fetch(endpoint).then(response => {
         response.json().then(function (data) {
-          console.log(data.data.results)
           setFilterDisplay(data.data.results)
         })
       })
