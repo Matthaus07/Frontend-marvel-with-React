@@ -1,4 +1,4 @@
-  
+
 import { HttpClient, HttpStatusCode } from '@/data/protocols/http'
 import { UnexpectedError } from '@/domain/errors/unexpected-error'
 import { LoadHeroesList } from '@/domain/usecases'
@@ -24,7 +24,7 @@ export class RemoteLoadHeroesList implements LoadHeroesList {
 }
 
 export namespace RemoteLoadHeroesList {
-  export type Model = {
+  export interface Model {
     id: string
     name: string
     series: any

@@ -1,11 +1,13 @@
 import React,{ useEffect, useState } from 'react'
+import Pagination from 'react-js-pagination'
 import MainHeader from '@/presentation/components/header/main-header'
 import HeroesList from '@/presentation/pages/main-heroes/components/heroes-list/heroes-list'
 import { LoadHeroesList } from '@/domain/usecases'
 import Styles from './main-heroes-styles.scss'
-import Pagination from 'react-js-pagination'
 import Filter from '@/presentation/components/search-input/search-input'
 import Spinner from '@/presentation/components/spinner/spinner'
+import { makeApiUrl } from '@/main/factories/http'
+import UnexpectedError from '@/presentation/components/unexpected-error/unexpected-error'
 
 interface Props {
   heroeslist: LoadHeroesList
@@ -30,9 +32,10 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
   const loadAllHeroes = async () => {
     try {
       const groupHeroes = await heroeslist.loadAll()
+      console.log(groupHeroes)
       setState({ ...state, heroes: groupHeroes, isLoading: true })
     } catch (err) {
-      setState({ ...state, isLoading: false, mainError: 'error.message' })
+      setState({ ...state, isLoading: false, mainError: 'Ocorreu um erro inesperado. Por favor tente mais tarde!' })
     }
   }
 
@@ -40,7 +43,7 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
 
   const handleSearchHero = async () => {
     if (search !== '') {
-      const endpoint = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${search}&ts=1&apikey=83d65c3fe4e9bd364cd51734e06563d8&hash=70f4690b2168e082fcc707253025b8db`
+      const endpoint = makeApiUrl(`/characters?nameStartsWith=${search}`)
       const fetchResult = await fetch(endpoint)
       const fetchResultJson = await fetchResult.json()
       setFilterDisplay(fetchResultJson.data.results)
@@ -55,14 +58,18 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
   return (
     <>
       <MainHeader />
-      <div className={Styles.spaceBottomBetween}></div>
 
       { state.isLoading
 
         ? <div className={Styles.container}>
-          <h2>Busca de Personagens</h2>
-          <p>Nome do Personagem</p>
-          <Filter value={search} onChange={hadleFilterChange}/>
+
+          <div className={Styles.ContentSearchHero}>
+            <h2>Busca de Personagens</h2>
+            <p className={Styles.TextNameHero}>Nome do Personagem</p>
+            <Filter value={search} onChange={hadleFilterChange}/>
+          </div>
+          <div className={Styles.spaceBottomBetween}></div>
+
           <HeroesList heroes={search !== '' ? filterDisplay : currentTodos}/>
           <Pagination
             hideDisabled
@@ -78,7 +85,7 @@ const MainHeroes: React.FC<Props> = ({ heroeslist }: Props) => {
             activeClass={Styles.ItemClass} />
         </div>
 
-        : <Spinner/>
+        : state.mainError === '' ? <Spinner/> : <UnexpectedError/>
       }
     </>
   )

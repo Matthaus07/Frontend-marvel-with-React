@@ -12,7 +12,6 @@ module.exports = merge(common, {
       loader: 'ts-loader',
       exclude: /node_modules/
     },
-    
     {
       test: /\.(jpe?g|gif|png|svg)$/i,
       use: [

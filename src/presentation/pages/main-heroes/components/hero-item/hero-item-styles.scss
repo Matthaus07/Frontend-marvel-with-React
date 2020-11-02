@@ -10,16 +10,21 @@
     font-weight: bold;
     box-shadow: 0px 0px 5px #00000033;
     border-radius: 4px;
+    &:hover{
+      cursor:pointer;
+      box-shadow: 0px 0px 10px #100d0d82;
+    }
+    p{
+        color: #555555;
+        font-weight: bold;
+    }
   }
-  
-
-
-  .thumbnailContent{
-    display: flex;
-    column-gap: 1em;
-    align-items: center;
-    text-decoration: none;
-  }
+.thumbnailContent{
+  display: flex;
+  column-gap: 1em;
+  align-items: center;
+  text-decoration: none;
+}
   
 .thumbnailBackground{
   margin-left: 1em;
@@ -28,3 +33,15 @@
   border-radius: 4px;
 }
 
+@media (max-width: 700px) {
+  .backgroundCard {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 80%;
+    margin-left: 36px;
+
+    ul{
+      display: none;
+    }
+  }
+
+}

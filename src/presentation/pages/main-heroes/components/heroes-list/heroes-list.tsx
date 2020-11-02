@@ -12,9 +12,9 @@ const HeroesList: React.FC<Props> = ({ heroes }: Props) => {
     <>
       <section className={Styles.list}>
         <ul className={Styles.nameFields}>
-          <li>Personagem</li>
-          <li>Series</li>
-          <li>Eventos</li>
+          <li className={Styles.fieldChars}>Personagem</li>
+          <li className={Styles.fieldSeries}>Series</li>
+          <li className={Styles.fieldEvets}>Eventos</li>
 
         </ul>
         {heroes.length

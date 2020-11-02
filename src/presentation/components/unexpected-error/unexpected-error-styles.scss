@@ -1,0 +1,16 @@
+.contentMessage{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5em;
+
+  .unexpectedImage{
+    max-width: 100%;
+    width:300px;
+    height: auto;
+  }
+
+  h4{
+    margin-top: 1em;
+  }
+}
