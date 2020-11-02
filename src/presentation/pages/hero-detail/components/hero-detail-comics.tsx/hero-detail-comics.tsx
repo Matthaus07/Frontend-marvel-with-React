@@ -1,5 +1,5 @@
 import { HeroDataResult } from '@/domain/usecases'
-import { getApiUrlFromTheResponse, makeApiUrl } from '@/main/factories/http'
+import { makeApiUrl } from '@/main/factories/http'
 import React, { useCallback, useEffect, useState } from 'react'
 import Styles from './hero-detail-comics-styles.scss'
 
