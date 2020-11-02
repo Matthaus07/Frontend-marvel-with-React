@@ -1,3 +1,4 @@
+// config for heroku
 const fallback = require('express-history-api-fallback')
 const express = require('express')
 const app = express()

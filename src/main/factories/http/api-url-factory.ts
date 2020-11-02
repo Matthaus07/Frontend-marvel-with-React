@@ -1,7 +1,7 @@
 import md5 from 'js-md5'
 
-const PUBLIC_KEY = '1d72a4d42c186726c707c4900f62845c'
-const PRIVATE_KEY = 'e2e32d0cf364ee496ef001282c4f1cdf846f4f2f'
+const PUBLIC_KEY = 'ec62e69ea22ec9e3c42bacf6df0fc296'
+const PRIVATE_KEY = '4e1c785eeb8a9eef41579b882f0fc07a8c86a834'
 const times = Number(new Date())
 const hashs = md5.create()
 hashs.update(`${times}${PRIVATE_KEY}${PUBLIC_KEY}`)
