@@ -15,9 +15,9 @@ export class RemoteDataHeroResult implements HeroDataResult {
       url: this.url,
       method: 'get'
     })
-    const remoteSurveyResult = httpResponse.body 
+    const remoteDataResult = httpResponse.body 
     switch (httpResponse.statusCode) {
-      case HttpStatusCode.ok: return Object.assign([], remoteSurveyResult)
+      case HttpStatusCode.ok: return Object.assign([], remoteDataResult)
       default: throw new UnexpectedError()
     }
   }
