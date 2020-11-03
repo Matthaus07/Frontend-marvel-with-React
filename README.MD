@@ -20,9 +20,9 @@ da interface do usuário ou de qualquer outra camada. Além de conter também a 
 Assim criada todas as duas partes do teste como a **Listagem** e também os **Detalhes** do personagem.
 
 Obedecendo todos os critérios como: 
- -[X] tentar evitar o uso de bibliotecas de terceiro(Salvo a excessão do uso de uma lib para paginação).
- -[X] Máximo de comandos para executar o sistema (npm install e npm run dev).
- -[X] Uso do Webpack para minificar e buildar arquivos tanto estáticos quanto não.
+ - [X] tentar evitar o uso de bibliotecas de terceiro(Salvo a excessão do uso de uma lib para paginação).
+ - [X] Máximo de comandos para executar o sistema (npm install e npm run dev).
+ - [X] Uso do Webpack para minificar e buildar arquivos tanto estáticos quanto não.
  
  
  O react foi totalmente configurado via webpack, não sendo utilizado o CRA(Create React App), pois a intenção é realmente não depender de outras bibliotecas em que o 
