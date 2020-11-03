@@ -30,12 +30,12 @@ Obedecendo todos os critérios como:
  
  O projeto utiliza das seguintes tecnologias:
  
- 1. SASS - Foi utilizado sem uso de Styled-components, somente o scss.
- 2. Typescript - para tipagem estática e criação de interfaces para a regra de negócio.
- 3. react-pagination-js - Para criar um componente de paginação.
- 4. MD5 - para a criptografia, necessária para gerar o hash na api da Marvel.
- 5. MD5 - para a criptografia, necessária para gerar o hash na api da Marvel.
- 6. As demais bibliotecas contidas, são dependências do react(Como o router-dom) e da webpack(Para configurar imagens, minificar arquivos e etc).
+ . SASS - Foi utilizado sem uso de Styled-components, somente o scss.
+ . Typescript - para tipagem estática e criação de interfaces para a regra de negócio.
+ . react-pagination-js - Para criar um componente de paginação.
+ . MD5 - para a criptografia, necessária para gerar o hash na api da Marvel.
+ . MD5 - para a criptografia, necessária para gerar o hash na api da Marvel.
+ . As demais bibliotecas contidas, são dependências do react(Como o router-dom) e da webpack(Para configurar imagens, minificar arquivos e etc).
  
 
 
