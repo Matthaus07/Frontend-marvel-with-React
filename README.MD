@@ -34,7 +34,6 @@ Obedecendo todos os critérios como:
  * Typescript - para tipagem estática e criação de interfaces para a regra de negócio
  * react-pagination-js - Para criar um componente de paginação
  * MD5 - para a criptografia, necessária para gerar o hash na api da Marvel
- * MD5 - para a criptografia, necessária para gerar o hash na api da Marvel
  * As demais bibliotecas contidas, são dependências do react(Como o router-dom) e da webpack(Para configurar imagens, minificar arquivos e etc)
 
 
